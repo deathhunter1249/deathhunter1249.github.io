@@ -1,130 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DPRT | Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DPRT — Democratic People's Republic of Teapots</title>
+    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet" />
     <style>
-        /* INK STYLE - Minimal & Sharp */
-        :root {
-            --ink-black: #111111;
-            --off-white: #fcfaf7; /* Deep, off-white (like quality paper) */
-            --ink-border: 1px solid #d4d4d4;
-            --accent: #ff4d4d; /* Minimal accent color (like a red wax seal or stamp) */
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background-color: var(--off-white);
-            background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill-rule="evenodd"%3E%3Cg fill="%23dcd9d6" fill-opacity="0.2"%3E%3Cpath d="M0 40h40V0H0v40zM20 20h20v20H20V20zM0 0h20v20H0V0z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E'); /* Subtle, ink-on-paper texture */
-            color: var(--ink-black);
-            font-family: 'Georgia', 'Times New Roman', Times, serif; /* Ink/Print font */
-            margin: 0;
+            min-height: 100vh;
+            background: #0d0a08;
+            background-image: radial-gradient(ellipse at 20% 50%, rgba(100, 20, 20, 0.25) 0%, transparent 60%);
+            font-family: 'Finger Paint', cursive;
+            color: #c8a96e;
+            padding: 60px 24px;
             line-height: 1.6;
         }
-
-        header {
-            text-align: center;
-            padding: 80px 20px;
-            border-bottom: var(--ink-border);
+        .container { max-width: 800px; margin: 0 auto; }
+        
+        .seal { 
+            font-size: 32px; 
+            color: #8b1a1a; 
+            display: inline-block; 
+            border: 2px solid #8b1a1a; 
+            width: 52px; 
+            height: 52px; 
+            line-height: 48px; 
+            text-align: center; 
+            margin-bottom: 28px; 
         }
 
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
-            letter-spacing: 0.1rem;
-            border-bottom: 2px solid var(--accent); /* Minimal under-line */
-            display: inline-block;
-            padding-bottom: 5px;
+        h1 { font-size: 28px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 8px; }
+        .subtitle { font-size: 12px; color: rgba(200,169,110,0.4); letter-spacing: 5px; margin-bottom: 60px; }
+        
+        .divider { 
+            height: 1px; 
+            background: linear-gradient(to right, transparent, rgba(200,169,110,0.2), transparent); 
+            margin: 40px 0; 
         }
 
-        header p {
-            font-style: italic;
-            font-size: 1.1rem;
-            margin-top: 15px;
-        }
+        .section { margin-bottom: 50px; }
+        h2 { font-size: 18px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 15px; color: #8b1a1a; }
+        p { font-size: 14px; color: rgba(200,169,110,0.7); margin-bottom: 25px; }
 
-        main {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
-
-        .section {
-            margin-bottom: 60px;
-            border-left: 2px solid var(--ink-black);
-            padding-left: 25px;
-        }
-
-        .section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            margin-top: 0;
-        }
-
-        .section p {
-            margin-bottom: 25px;
-        }
-
-        .btn-container {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .ink-btn {
-            display: inline-block;
-            padding: 12px 28px;
-            background: none;
-            color: var(--ink-black);
-            border: var(--ink-border);
+        .btn-group { display: flex; gap: 20px; flex-wrap: wrap; }
+        .btn {
+            padding: 12px 30px;
+            border: 1px solid rgba(200,169,110,0.3);
+            background: transparent;
+            color: #c8a96e;
             text-decoration: none;
-            font-weight: bold;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Clean sans-serif for buttons */
-            transition: all 0.2s ease;
+            font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 0.05rem;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: #8b1a1a;
+            color: #fff;
+            border-color: #8b1a1a;
+            box-shadow: 0 0 15px rgba(139, 26, 26, 0.4);
         }
 
-        .ink-btn:hover {
-            background-color: var(--ink-black);
-            color: var(--off-white);
-            border-color: var(--ink-black);
-            transform: translateY(-2px);
-        }
-
-        .member-feature {
-            background-color: #ffffff; /* pure white for contrast */
-            padding: 30px;
-            border: var(--ink-border);
+        .footer { 
+            margin-top: 80px; 
+            font-size: 11px; 
+            letter-spacing: 3px; 
+            color: rgba(200,169,110,0.2); 
+            text-transform: uppercase; 
             text-align: center;
-            max-width: 400px;
-            margin: 0 auto;
         }
-
-        .member-feature img {
-            max-width: 150px;
-            height: auto;
-            border-radius: 50%;
-            border: var(--ink-border);
-            margin-bottom: 20px;
-            filter: grayscale(100%); /* Grayscale feature for ink vibe */
+        
+        a.tos-link {
+            color: rgba(200,169,110,0.4);
+            text-decoration: none;
+            font-size: 10px;
+            display: block;
+            margin-top: 20px;
         }
-
-        .member-feature h3 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            border-top: var(--ink-border);
-            font-size: 0.9rem;
-            font-style: italic;
-        }
-
+        a.tos-link:hover { color: #c8a96e; }
     </style>
 </head>
 <body>
+    <div class="container">
+        <div class="seal">茶</div>
+        <h1>DPRT</h1>
+        <div class="subtitle">DEMOCRATIC PEOPLE'S REPUBLIC OF TEAPOTS</div>
 
-    <header>
+        <div class="section">
+            <h2>The Republic</h2>
+            <p>A sovereign community built on precision, order, and collective development. We operate across the border territories, maintaining a standard of excellence in architecture and strategic simulation.</p>
+            <div class="btn-group">
+                <a href="https://www.roblox.com/groups/REPLACE_WITH_YOUR_ID" class="btn">Enter Republic</a>
+                <a href="https://discord.gg/vngbreZasp" class="btn">Secure Comms</a>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <h2>Operations</h2>
+            <p>From 3D modeling to complex military simulations, the DPRT is home to creators and tacticians alike. Access our various sectors via the verified comms hub.</p>
+        </div>
+
+        <div class="footer">
+            © 2026 DPRT — dprt.lol
+            <a href="tos.html" class="tos-link">Terms of Service</a>
+        </div>
+    </div>
+</body>
+</html>
