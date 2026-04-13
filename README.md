@@ -1,4 +1,3 @@
-```markdown
 # DPRT Verification Bot
 
 A Discord bot that verifies Roblox accounts for the Democratic People's Republic of Teapots (DPRT) using Roblox OAuth 2.0.
@@ -31,4 +30,3 @@ When `/update` is run the bot checks that you are still a member of both require
 
 - [Civ Group](https://www.roblox.com/communities/34683201/DPRT-Democratic-Peoples-Republic-of-Teapots#!/about)
 - [Army Group](https://www.roblox.com/communities/34683309/DPRT-Handsome-Teapot-Army-of-the-DPRT#!/about)
-```
