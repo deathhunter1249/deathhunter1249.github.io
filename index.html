@@ -3,153 +3,148 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DPRT — THE MANIFESTO</title>
+    <title>DPRT // JJS STYLE</title>
     <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet" />
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             min-height: 100vh;
-            background-color: #121212; /* Deep charcoal */
-            /* Subtle scanline/photocopy texture */
-            background-image: linear-gradient(rgba(18, 18, 18, 0.9) 50%, rgba(0, 0, 0, 0.1) 50%),
-                              linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-            background-size: 100% 4px, 3px 100%;
+            background-color: #0c0c0c;
+            /* Subtle dark grid pattern often found in Roblox UIs */
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
             font-family: 'Finger Paint', cursive;
-            color: #e0e0e0;
-            padding: 40px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .container { 
-            max-width: 650px; 
-            margin: 0 auto; 
-            background: #1a1a1a;
-            border: 5px solid #e0e0e0;
-            padding: 40px;
-            /* Brutalist offset shadow */
-            box-shadow: 12px 12px 0px #8b1a1a;
+        /* The Main Menu Frame */
+        .menu-frame {
+            width: 700px;
+            background: rgba(15, 15, 15, 0.85);
+            border: 3px solid #000; /* Thick JJS Outline */
+            border-radius: 12px;
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1); /* Inner thin white line */
+            padding: 30px;
             position: relative;
-            transform: rotate(-0.5deg);
         }
 
-        /* The "Stamp" look */
-        .seal { 
+        /* Red "Active" Accent Bar */
+        .header-accent {
             position: absolute;
-            top: -20px;
-            right: -20px;
+            top: 15px;
+            left: -8px;
+            height: 40px;
+            width: 6px;
             background: #8b1a1a;
-            color: #fff;
-            width: 70px;
-            height: 70px;
-            line-height: 70px;
-            text-align: center;
-            font-size: 35px;
-            border-radius: 50%;
-            transform: rotate(15deg);
-            box-shadow: 2px 2px 0px #000;
-            border: 3px dashed #fff;
+            border: 2px solid #000;
         }
 
         h1 { 
-            font-size: 60px; 
-            line-height: 1;
-            margin-bottom: 5px; 
             color: #fff;
-            text-shadow: 3px 3px 0px #8b1a1a;
+            font-size: 38px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            -webkit-text-stroke: 1.5px #000; /* Shadow/Outline effect */
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .subtitle { 
-            font-size: 14px; 
-            background: #e0e0e0;
-            color: #1a1a1a;
-            display: inline-block;
-            padding: 2px 10px;
-            margin-bottom: 40px;
-            transform: rotate(1deg);
-        }
-        
-        .section { margin-bottom: 40px; position: relative; }
-
-        h2 { 
-            font-size: 24px; 
-            text-decoration: underline wavy #8b1a1a;
-            margin-bottom: 15px; 
+        .divider {
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 25px;
+            border-radius: 2px;
         }
 
-        p { 
-            font-size: 16px; 
-            line-height: 1.4;
-            color: #b0b0b0;
+        .content-area {
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid #000;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
         }
 
-        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px; }
-        
-        .btn {
-            padding: 15px 25px;
-            background: #e0e0e0;
-            color: #1a1a1a;
-            text-decoration: none;
+        p {
             font-size: 14px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        /* JJS Style Buttons: Outlined, Rounded, and responsive */
+        .btn-list { display: flex; flex-direction: column; gap: 10px; }
+
+        .btn {
+            background: rgba(40, 40, 40, 0.6);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border: 2px solid #000;
+            border-radius: 6px;
+            font-size: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.15s ease-in-out;
+        }
+
+        .btn::after {
+            content: ">";
             font-weight: bold;
-            border: 3px solid #1a1a1a;
-            transition: 0.2s;
-            display: inline-block;
+            opacity: 0.5;
         }
 
         .btn:hover {
             background: #8b1a1a;
+            border-color: #fff;
+            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(139, 26, 26, 0.3);
+        }
+
+        .btn:active { transform: scale(0.98); }
+
+        /* The little 'Status' tags found in JJS menus */
+        .status-badge {
+            font-size: 10px;
+            background: #8b1a1a;
             color: #fff;
-            transform: translateY(-5px) rotate(-2deg);
-            box-shadow: 5px 5px 0px #000;
-        }
-
-        .tape {
-            position: absolute;
-            top: -10px;
-            left: 30%;
-            width: 120px;
-            height: 35px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(2px);
-            transform: rotate(-2deg);
-            border-left: 2px dotted rgba(255,255,255,0.2);
-            border-right: 2px dotted rgba(255,255,255,0.2);
-        }
-
-        .footer { 
-            margin-top: 50px; 
-            font-size: 12px; 
-            text-align: center;
-            opacity: 0.5;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            border: 1px solid #000;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="tape"></div>
-        <div class="seal">茶</div>
+
+    <div class="menu-frame">
+        <div class="header-accent"></div>
+        <h1>
+            DPRT 
+            <span class="status-badge">Main Terminal</span>
+        </h1>
         
-        <h1>DPRT</h1>
-        <div class="subtitle">DEMOCRATIC PEOPLE'S REPUBLIC OF TEAPOTS</div>
+        <div class="divider"></div>
 
-        <div class="section">
-            <h2>The Republic</h2>
-            <p>WE ARE A ROBLOX LARP COMMUNITY. We bridge the gap between "Serious Mil-Sim" and total chaos. Structure exists, but the fun is mandatory.</p>
-            
-            <div class="btn-group">
-                <a href="#" class="btn">JOIN DISCORD</a>
-                <a href="#" class="btn">ROBLOX GROUP</a>
-            </div>
+        <div class="content-area">
+            <p>
+                The Democratic People's Republic of Teapots is an open-world sandbox military simulation. 
+                We focus on high-stakes roleplay mixed with community chaotic energy. 
+            </p>
         </div>
 
-        <div class="section">
-            <h2>Operations</h2>
-            <p>Ministries. Divisions. Chaotic Trainings. Find your place or get out of the way.</p>
-        </div>
-
-        <div class="footer">
-            EST. 2026 // [REDACTED]
+        <div class="btn-list">
+            <a href="#" class="btn">DEPLOY TO DISCORD</a>
+            <a href="#" class="btn">ACCESS ROBLOX GROUP</a>
+            <a href="#" class="btn">MINISTRY GUIDELINES</a>
         </div>
     </div>
+
 </body>
 </html>
